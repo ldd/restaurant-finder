@@ -36,9 +36,14 @@ module.exports = {
         ]
     },
     plugins:[
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
         new webpack.ProvidePlugin({
             'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-        }),
+        })
         //new webpack.DefinePlugin({
         //    DEBUG: process.env.NODE_ENV !== 'production',
         //    PRODUCTION: process.env.NODE_ENV === 'production'
